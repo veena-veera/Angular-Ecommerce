@@ -1,22 +1,20 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class MessengerService {
-  subject= new Subject();
+  subject = new Subject();
 
-  constructor() { }
+  constructor() {}
 
-sendMsg(product){
-  console.log(product);
-  this.subject.next(product) ; //triggering an event
-
-}
-getMsg(){
-
-  return this.subject.asObservable();
-}
-
+  sendMsg(product) {
+    console.log(product);
+    localStorage.setItem("productToBeAdded", JSON.stringify(product));
+    this.subject.next(product); //triggering an event
+  }
+  getMsg() {
+    return this.subject.asObservable();
+  }
 }

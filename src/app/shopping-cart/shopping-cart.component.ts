@@ -1,69 +1,72 @@
-import { Component, OnInit } from '@angular/core';
-import { MessengerService } from 'src/app/services/messenger.service';
-import { Product } from '../modals/product';
-import { identifierModuleUrl } from '@angular/compiler';
+import { Component, OnInit } from "@angular/core";
+import { MessengerService } from "src/app/services/messenger.service";
+import { Product } from "../modals/product";
+import { identifierModuleUrl } from "@angular/compiler";
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  selector: "app-shopping-cart",
+  templateUrl: "./shopping-cart.component.html",
+  styleUrls: ["./shopping-cart.component.css"],
 })
 export class ShoppingCartComponent implements OnInit {
-
-  cartItems=[
+  cartItems = [
     //{id:1, productId:1, productName:'test1', quantity:2, price: 122 },
     //{id:2, productId:2, productName:'test2', quantity:1, price: 10 },
     //{id:3, productId:3, productName:'test3', quantity:3, price: 20 },
     //{id:4, productId:4, productName:'test4', quantity:4, price: 40 },
-    
-
   ];
 
-  cartTotal=0;
+  cartTotal = 0;
 
-  constructor(private msg: MessengerService) { }
+  constructor(private msg: MessengerService) {}
 
   ngOnInit() {
-    this.msg.getMsg().subscribe((product: Product)=> {
-      this.addProductToCart(product);
+    console.log("here");
+
+    if (localStorage.getItem("cartProducts")) {
+      var retrievedCartObject = localStorage.getItem("cartProducts");
+      var retrievedCartTotal = localStorage.getItem("cartTotal");
+      this.cartTotal = JSON.parse(retrievedCartTotal);
+      this.cartItems = JSON.parse(retrievedCartObject);
+    }
+
+    this.msg.getMsg().subscribe((product: Product) => {
+      var retrievedObject = localStorage.getItem("productToBeAdded");
+      this.addProductToCart(JSON.parse(retrievedObject));
     });
   }
 
-  addProductToCart(product : Product){
-    let productExists= false ;
-    for(let i in this.cartItems){
-      if(this.cartItems[i].productId===product.id){
-        this.cartItems[i].quantity++ ;
-        productExists = true ;
+  addProductToCart(product: Product) {
+    let productExists = false;
+    for (let i in this.cartItems) {
+      if (this.cartItems[i].productId === product.id) {
+        this.cartItems[i].quantity++;
+        productExists = true;
         break;
       }
     }
 
-    if(!productExists){
+    if (!productExists) {
       this.cartItems.push({
-        productId:product.id,
+        productId: product.id,
         productName: product.name,
-        quantity:1,
-        price:product.price
-      })
+        quantity: 1,
+        price: product.price,
+      });
     }
-    
-    this.cartTotal=0;
-    this.cartItems.forEach(item=> {
-      this.cartTotal+=(item.quantity * item.price)
+
+    this.cartTotal = 0;
+    this.cartItems.forEach((item) => {
+      this.cartTotal += item.quantity * item.price;
     });
+
+    localStorage.setItem("cartProducts", JSON.stringify(this.cartItems));
+    localStorage.setItem("cartTotal", JSON.stringify(this.cartTotal));
   }
-
-
 }
 
+//let productExists = false;
 
-
-
-
-
-    //let productExists = false;
-
-   /* for(let i of this.cartItems){
+/* for(let i of this.cartItems){
       if(this.cartItems[i].id===product.id){
         this.cartItems[i].quantity++ ;
         productExists = true ;
@@ -84,8 +87,3 @@ export class ShoppingCartComponent implements OnInit {
     this.cartItems.forEach(item=> {
       this.cartTotal+=(item.quantity * item.price)
     }); */
-      
-
-  
-
-
