@@ -1,0 +1,12 @@
+button{
+  margin-top: 20px;
+  
+  font-family: 'Times New Roman', Times, serif, Georgia, serif;
+  height: 50px;
+  font-size : 20px;
+  color: white;
+  background-color: black;
+ /* border: 10px; */
+ border-radius: 5px
+  
+}

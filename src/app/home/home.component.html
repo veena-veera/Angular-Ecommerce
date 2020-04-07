@@ -1,15 +1,41 @@
-<mdb-carousel [animation]="'slide'">
+
+
+<mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
   <mdb-carousel-item>
-    <img class="d-block w-100" src="../../assets/images/carousel_image1.jpg" alt="First slide">
+    <div class="view w-100">
+      <img class="d-block w-100" src="../../assets/images/carousel_image1.jpg" alt="First slide">
+      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption">
+      <h3 class="h3-responsive">Exclusive sarees at your door step</h3>
+    </div>
   </mdb-carousel-item>
   <mdb-carousel-item>
-    <img class="d-block w-100" src="../../assets/images/carousel_image2.jpg">
+    <div class="view w-100">
+      <img class="d-block w-100" src="../../assets/images/carousel_image2.jpg" alt="Second slide">
+      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption">
+      <h3 class="h3-responsive">pastel collection</h3>
+    </div>
   </mdb-carousel-item>
   <mdb-carousel-item>
-    <img class="d-block w-100" src="../../assets/images/carousel_image3.jpg" alt="Third slide">
+    <div class="view w-100">
+      <img class="d-block w-100" src="../../assets/images/carousel_image3.jpg" alt="Third slide">
+      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption" style = "padding-top : 10px">
+      <h3 class="h3-responsive">Unique banarasi sarees</h3>
+    </div>
   </mdb-carousel-item>
   <mdb-carousel-item>
-    <img class="d-block w-100" src="../../assets/images/carousel_image4.jpg" alt="Third slide">
+    <div class="view w-100">
+      <img class="d-block w-100" src="../../assets/images/carousel_image4.jpg" alt="Third slide">
+      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption" style = "padding-top : 10px">
+      <h3 class="h3-responsive">wedding collection</h3>
+    </div>
   </mdb-carousel-item>
 
 </mdb-carousel>

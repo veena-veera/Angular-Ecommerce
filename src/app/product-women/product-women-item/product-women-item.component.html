@@ -1,0 +1,33 @@
+<mdb-card class="align-items-center">
+
+  <!--Card image-->
+  <div class="view overlay waves-light" mdbWavesEffect>
+    <mdb-card-img [src]="productitem.imageUrl" alt=""></mdb-card-img>
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+  <!--Card image-->
+
+  <!--Card content-->
+  <mdb-card-body class="text-center">
+    <!--Category & Title-->
+    
+    <h5>
+      <strong>
+        <a  class="dark-grey-text">{{productitem.name }}
+        </a>
+      </strong>
+    </h5>
+
+    <h4 class="font-weight-bold dark-grey-text">
+      {{ productitem.price | currency }}
+    </h4>
+    <p><button type="button" (click)="handleAddtoCart()">Add to Cart</button></p>
+
+  </mdb-card-body>
+  <!--Card content-->
+
+</mdb-card>
+
+

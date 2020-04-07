@@ -1,0 +1,17 @@
+.order{
+  height: 500px;
+  width: 500px;
+  background-color:white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.order span{
+  display: block;
+  text-align: center;
+  background-color: rgb(231, 205, 100);
+  height: 40px;
+  width: 500px;
+
+  
+}

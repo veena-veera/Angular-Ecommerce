@@ -11,9 +11,12 @@ import { ProductWomenComponent } from './product-women/product-women.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
-import { GuestCheckoutComponent } from './guest-checkout/guest-checkout.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { ProductWomenItemComponent } from './product-women/product-women-item/product-women-item.component';
+import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component';
+import { CheckoutGuestComponent } from './checkout/checkout-guest/checkout-guest.component';
+
 
 @NgModule({
   declarations: [
@@ -24,9 +27,11 @@ import { HomeComponent } from './home/home.component';
     ShoppingCartComponent,
     CheckoutComponent,
     OrderSuccessComponent,
-    GuestCheckoutComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ProductWomenItemComponent,
+    CartItemComponent,
+    CheckoutGuestComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,9 @@ import { HomeComponent } from './home/home.component';
       {path:'checkout', component: CheckoutComponent },
       {path:'order-success', component: OrderSuccessComponent},
       {path:'login', component: LoginComponent},
+      {path:'product-women-item', component: ProductWomenItemComponent},
+      {path:'cart-item', component:CartItemComponent},
+      {path: 'checkout-guest', component: CheckoutGuestComponent}
       
     ])
   ],

@@ -7,12 +7,38 @@
   <!--Section description-->
   <p class=" mb-5"><b> Silk sarees in calming, muted pastel shades - pleasant and soothing. Colours and hues that are fresh and subdued, delicate and cool! Light-toned, pale drapes in classic pure Kanchipuram silk….</b></p>
 
+  <div class="row">
+
+    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of productwomen">
+      <app-product-women-item [productitem]="product"></app-product-women-item>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4" >
+      <app-shopping-cart></app-shopping-cart>  
+    </div>
+    
+
+  </div>
+
+
+  <!-- testing 
+  <div class="row">
+
+    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of productwomen">
+      <app-product-women-item [productitem]="product"></app-product-women-item>
+    </div>
+    
+
+  </div>  -->
+
+
+
+
   <!--Grid row-->
   <div class="row">
 
     <!--Grid column-->
     <div class="col-lg-3 col-md-6 mb-4">
-
+      
       <!--Card-->
       <mdb-card class="align-items-center">
 
@@ -166,6 +192,8 @@
 
       </mdb-card>
       <!--Card-->
+
+  
 
     </div>
     <!--Fourth column-->
