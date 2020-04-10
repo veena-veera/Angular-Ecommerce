@@ -20,18 +20,15 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private msg: MessengerService) {}
 
   ngOnInit() {
-    console.log("here");
-
     if (localStorage.getItem("cartProducts")) {
       var retrievedCartObject = localStorage.getItem("cartProducts");
       var retrievedCartTotal = localStorage.getItem("cartTotal");
       this.cartTotal = JSON.parse(retrievedCartTotal);
       this.cartItems = JSON.parse(retrievedCartObject);
     }
-
     this.msg.getMsg().subscribe((product: Product) => {
-      var retrievedObject = localStorage.getItem("productToBeAdded");
-      this.addProductToCart(JSON.parse(retrievedObject));
+      // var retrievedObject = localStorage.getItem("productToBeAdded");
+      this.addProductToCart(product);
     });
   }
 

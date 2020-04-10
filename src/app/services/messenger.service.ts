@@ -14,6 +14,7 @@ export class MessengerService {
     localStorage.setItem("productToBeAdded", JSON.stringify(product));
     this.subject.next(product); //triggering an event
   }
+
   getMsg() {
     return this.subject.asObservable();
   }
