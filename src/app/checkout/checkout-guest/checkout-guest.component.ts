@@ -31,6 +31,8 @@ export class CheckoutGuestComponent implements OnInit {
     this.apiService.createOrder(data).subscribe(
       (res) => {
         console.log("Order successfully inserted in db!", res.OrderId);
+        localStorage.removeItem("cartProducts");
+        localStorage.removeItem("cartTotal");
         this.ngZone.run(() => this.router.navigateByUrl("/order-success"));
       },
       (error) => {

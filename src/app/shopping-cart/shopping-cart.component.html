@@ -28,6 +28,7 @@
      
      <li class="list-group-item" *ngFor="let item of cartItems">
       <app-cart-item [cartItem]="item" ></app-cart-item>
+      <button type="button" (click)="removeItem()" class="remove">Remove Item</button>
      </li>
 
      <li class="list-group-item" style="background-color: rgb(207, 200, 200);">
