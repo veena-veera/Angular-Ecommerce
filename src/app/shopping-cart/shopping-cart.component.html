@@ -6,44 +6,43 @@
 
 <div class="container" style="min-height: 750px;">
   <div *ngIf="cartItems.length === 0" class="noitems">
-    <br><br>
+    <br /><br />
     <div class="row">
       <div class="col">
-      <strong>Your Cart is empty</strong>
+        <strong>Your Cart is empty</strong>
       </div>
     </div>
-    <br><br>
+    <br /><br />
     <div class="row">
       <div class="col">
-      Looks like you dont have anything to checkout! <br>Time to add something..
+        Looks like you dont have anything to checkout! <br />Time to add
+        something..
       </div>
     </div>
   </div>
-  
 
-   <ul *ngIf="cartItems.length > 0" class="list-group">
-     <li class="list-group-item" style="background-color:rgb(241, 235, 235);">
-        <strong>Your Cart Items</strong>
+  <ul *ngIf="cartItems.length > 0" class="list-group">
+    <li class="list-group-item" style="background-color: rgb(241, 235, 235);">
+      <strong>Your Cart Items</strong>
     </li>
-     
-     <li class="list-group-item" *ngFor="let item of cartItems">
-      <app-cart-item [cartItem]="item" ></app-cart-item>
-      <button type="button" (click)="removeItem()" class="remove">Remove Item</button>
-     </li>
 
-     <li class="list-group-item" style="background-color: rgb(207, 200, 200);">
-       <strong>Total: {{ cartTotal | currency }}</strong>
-     </li>
-   </ul>
+    <li class="list-group-item" *ngFor="let item of cartItems">
+      <app-cart-item [cartItem]="item"></app-cart-item>
+      <button
+        type="button"
+        (click)="removeProductFromCart(item)"
+        class="remove"
+      >
+        Remove Item
+      </button>
+    </li>
 
+    <li class="list-group-item" style="background-color: rgb(207, 200, 200);">
+      <strong>Total: {{ cartTotal | currency }}</strong>
+    </li>
+  </ul>
 
-
-  
-
-
-  <button type="button" class="button"  [disabled]="cartItems.length===0"  >
+  <button type="button" class="button" [disabled]="cartItems.length === 0">
     <div class="checkout"><a routerLink="/checkout">Continue</a></div>
   </button>
-  
 </div>
-
