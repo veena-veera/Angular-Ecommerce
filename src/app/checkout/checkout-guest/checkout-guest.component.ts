@@ -20,8 +20,14 @@ export class CheckoutGuestComponent implements OnInit {
   ) {}
   handleCheckOut() {
     let orderDetails = new Order(
+      this.uploadForm.get("fname").value,
       this.uploadForm.get("lname").value,
       this.uploadForm.get("email").value,
+      this.uploadForm.get("phone").value,
+      this.uploadForm.get("address").value,
+      this.uploadForm.get("city").value,
+      this.uploadForm.get("state").value,
+      this.uploadForm.get("zip").value,
       localStorage.getItem("cartTotal"),
       JSON.parse(localStorage.getItem("cartProducts"))
     );
@@ -50,8 +56,14 @@ export class CheckoutGuestComponent implements OnInit {
   }
   ngOnInit(): void {
     this.uploadForm = new FormGroup({
+      fname: new FormControl(),
       lname: new FormControl(),
       email: new FormControl(),
+      phone: new FormControl(),
+      address: new FormControl(),
+      city: new FormControl(),
+      state: new FormControl(),
+      zip: new FormControl(),
     });
   }
 }
